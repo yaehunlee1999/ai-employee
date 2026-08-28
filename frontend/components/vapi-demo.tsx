@@ -233,21 +233,8 @@ export default function VapiDemo() {
       </button>
       <p
         aria-live="polite"
-        className="mt-3 flex items-center justify-center gap-2 text-sm text-[#766d66] sm:justify-start"
+        className="mt-3 text-center text-sm text-[#766d66] sm:text-left"
       >
-        <span
-          aria-hidden="true"
-          className={
-            "h-2 w-2 rounded-full " +
-            (isLive
-              ? "bg-emerald-500"
-              : isConnecting
-                ? "animate-pulse bg-amber-500"
-                : callState === "microphone" || callState === "error"
-                  ? "bg-rose-500"
-                  : "bg-stone-400")
-          }
-        />
         {statusLabels[callState]}
       </p>
       {detail && (

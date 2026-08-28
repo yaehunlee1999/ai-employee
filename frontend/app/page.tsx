@@ -221,13 +221,7 @@ export default function Home() {
 
         <section className="grid items-center gap-12 pb-16 pt-12 lg:grid-cols-[minmax(0,.94fr)_minmax(420px,.86fr)] lg:gap-16 lg:pb-24 lg:pt-20">
           <div className="max-w-2xl">
-            <p className="inline-flex rounded-full border border-[#dfd0c1] bg-[#fffdf9] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#7a6655]">
-              Always available for restaurants
-            </p>
-            <div className="mt-6">
-              <DineBellWordmark className="text-[2.35rem] sm:text-[2.8rem]" />
-            </div>
-            <h1 className="mt-2 max-w-xl text-4xl font-semibold leading-[1.04] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-xl text-4xl font-semibold leading-[1.04] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
               The AI receptionist that never misses a restaurant call.
             </h1>
             <p className="mt-5 max-w-lg text-base leading-7 text-[#6f655d] sm:text-lg">
