@@ -19,6 +19,11 @@ LOCAL_DEVELOPMENT_ORIGINS = {
     "http://127.0.0.1:3000"
 }
 
+PRODUCTION_WEB_ORIGINS = {
+    "https://dinebell.app",
+    "https://www.dinebell.app"
+}
+
 
 def get_allowed_origins() -> list[str]:
     """Return explicit browser origins and fail closed in production."""
@@ -37,7 +42,11 @@ def get_allowed_origins() -> list[str]:
             raise RuntimeError(
                 "CORS_ALLOWED_ORIGINS is required when APP_ENV is production"
             )
-        return sorted(configured_origins)
+
+        # The web application is served from these first-party domains. Keep
+        # them explicit so an outdated deployment variable cannot block every
+        # authenticated browser request after a frontend release.
+        return sorted(PRODUCTION_WEB_ORIGINS | configured_origins)
 
     return sorted(LOCAL_DEVELOPMENT_ORIGINS | configured_origins)
 
