@@ -229,9 +229,6 @@ export default function VapiDemo() {
         disabled={!isSdkReady || isConnecting || isEnding}
         className="inline-flex w-full items-center justify-center rounded-full border border-[#9a7d60] bg-[#a88b6b] px-6 py-3.5 text-sm font-semibold text-[#fffdf9] shadow-[0_10px_20px_rgba(113,84,57,0.2)] transition hover:border-[#806247] hover:bg-[#8f7155] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        <span className="mr-2 grid h-5 w-5 place-items-center rounded-full bg-white/15 text-xs" aria-hidden="true">
-          {isLive ? "■" : "●"}
-        </span>
         {buttonLabel}
       </button>
       <p
