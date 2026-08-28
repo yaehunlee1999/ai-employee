@@ -3,6 +3,8 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 
+import { DineBellWordmark } from "../../components/dinebell-brand";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface OnboardingResponse {
@@ -73,28 +75,25 @@ export default function SignupPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f6f2] px-5 py-6 text-stone-950 sm:px-8 sm:py-10">
+    <main className="dinebell-auth-shell min-h-screen px-5 py-6 text-[#25211f] sm:px-8 sm:py-10">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/"
           aria-label="DineBell home"
-          className="inline-flex items-center gap-2.5 font-semibold tracking-tight transition hover:text-stone-600"
+          className="inline-flex transition hover:opacity-75"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-stone-950 text-sm text-white">
-            D
-          </span>
-          <span>DineBell</span>
+          <DineBellWordmark className="text-[1.9rem]" />
         </Link>
 
-        <section className="mx-auto mt-8 w-full max-w-2xl border border-stone-200 bg-white p-6 shadow-sm sm:mt-10 sm:p-8">
+        <section className="dinebell-auth-card mx-auto mt-8 w-full max-w-2xl rounded-[1.5rem] p-6 sm:mt-10 sm:p-8">
           <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#a88b6b]">
               Restaurant onboarding
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
+            <h1 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
               Set up your restaurant
             </h1>
-            <p className="mt-3 text-sm leading-6 text-stone-600">
+            <p className="mt-3 text-sm leading-6 text-[#766d66]">
               Create the owner account that keeps your reservations and DineBell receptionist in one place.
             </p>
           </div>
@@ -102,30 +101,30 @@ export default function SignupPage() {
           <form onSubmit={handleSubmit} className="mt-8 space-y-7">
             <div className="space-y-5">
               <div className="flex items-center justify-between gap-4">
-                <h2 className="text-sm font-semibold text-stone-950">Restaurant details</h2>
-                <span className="text-xs text-stone-500">Required fields</span>
+                <h2 className="text-sm font-semibold text-[#403934]">Restaurant details</h2>
+                <span className="text-xs text-[#8b7e73]">Required fields</span>
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-sm font-semibold text-stone-800">Restaurant name</span>
+                  <span className="text-sm font-semibold text-[#403934]">Restaurant name</span>
                   <input
                     type="text"
                     value={restaurantName}
                     onChange={(event) => setRestaurantName(event.target.value)}
-                    className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                    className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                     autoComplete="organization"
                     required
                   />
                 </label>
 
                 <label className="block">
-                  <span className="text-sm font-semibold text-stone-800">Owner name</span>
+                  <span className="text-sm font-semibold text-[#403934]">Owner name</span>
                   <input
                     type="text"
                     value={ownerName}
                     onChange={(event) => setOwnerName(event.target.value)}
-                    className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                    className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                     autoComplete="name"
                     required
                   />
@@ -133,62 +132,62 @@ export default function SignupPage() {
               </div>
 
               <label className="block">
-                <span className="text-sm font-semibold text-stone-800">Email</span>
+                <span className="text-sm font-semibold text-[#403934]">Email</span>
                 <input
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                  className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                   autoComplete="email"
                   required
                 />
               </label>
 
               <label className="block">
-                <span className="text-sm font-semibold text-stone-800">Password</span>
+                <span className="text-sm font-semibold text-[#403934]">Password</span>
                 <input
                   type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                  className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                   autoComplete="new-password"
                   minLength={8}
                   required
                 />
-                <span className="mt-2 block text-xs leading-5 text-stone-500">
+                <span className="mt-2 block text-xs leading-5 text-[#8b7e73]">
                   Use at least 8 characters.
                 </span>
               </label>
             </div>
 
-            <div className="border-t border-stone-200 pt-6">
+            <div className="border-t border-[#e7ddd2] pt-6">
               <div className="flex items-center justify-between gap-4">
-                <h2 className="text-sm font-semibold text-stone-950">Contact details</h2>
-                <span className="text-xs text-stone-500">Optional</span>
+                <h2 className="text-sm font-semibold text-[#403934]">Contact details</h2>
+                <span className="text-xs text-[#8b7e73]">Optional</span>
               </div>
-              <p className="mt-2 text-sm leading-6 text-stone-600">
+              <p className="mt-2 text-sm leading-6 text-[#766d66]">
                 Add these now if you would like them available for your restaurant profile.
               </p>
 
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-sm font-semibold text-stone-800">Phone (optional)</span>
+                  <span className="text-sm font-semibold text-[#403934]">Phone (optional)</span>
                   <input
                     type="tel"
                     value={phone}
                     onChange={(event) => setPhone(event.target.value)}
-                    className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                    className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                     autoComplete="tel"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="text-sm font-semibold text-stone-800">Address (optional)</span>
+                  <span className="text-sm font-semibold text-[#403934]">Address (optional)</span>
                   <input
                     type="text"
                     value={address}
                     onChange={(event) => setAddress(event.target.value)}
-                    className="mt-2 h-11 w-full border border-stone-300 bg-white px-3 text-sm text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-stone-950 focus:ring-2 focus:ring-stone-200"
+                    className="dinebell-input mt-2 h-11 w-full px-3 text-sm transition placeholder:text-[#a69b91]"
                     autoComplete="street-address"
                   />
                 </label>
@@ -222,17 +221,17 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={isSubmitting || Boolean(successMessage)}
-              className="h-11 w-full bg-stone-950 px-4 text-sm font-semibold text-white transition hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-950 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+              className="dinebell-primary-button h-11 w-full px-4 text-sm font-semibold"
             >
               {isSubmitting ? "Creating account..." : "Create restaurant account"}
             </button>
           </form>
 
-          <p className="mt-6 border-t border-stone-200 pt-5 text-sm leading-6 text-stone-600">
+          <p className="mt-6 border-t border-[#e7ddd2] pt-5 text-sm leading-6 text-[#766d66]">
             Already have an account?{" "}
             <Link
               href="/login"
-              className="font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950"
+              className="font-semibold text-[#6e513a] underline decoration-[#cdb292] underline-offset-4 transition hover:text-[#25211f]"
             >
               Sign in
             </Link>
@@ -241,7 +240,7 @@ export default function SignupPage() {
 
         <Link
           href="/"
-          className="mx-auto mt-6 flex w-full max-w-2xl text-sm font-medium text-stone-500 transition hover:text-stone-950"
+          className="mx-auto mt-6 flex w-full max-w-2xl text-sm font-medium text-[#766d66] transition hover:text-[#25211f]"
         >
           <span aria-hidden="true" className="mr-2">←</span>
           Back to DineBell

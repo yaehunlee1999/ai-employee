@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 
 import { supabase } from "../lib/supabase/client";
+import { DineBellIcon, DineBellWordmark } from "./dinebell-brand";
 
 const navigationItems = [
   { href: "/dashboard", label: "Overview", icon: "◌" },
@@ -33,19 +34,19 @@ function Navigation({ onNavigate }: NavigationProps) {
   }
 
   return (
-    <div className="flex h-full flex-col px-4 py-5 text-stone-200">
+    <div className="flex h-full flex-col px-4 py-6 text-[#e9dfd4]">
       <Link
         href="/dashboard"
         onClick={onNavigate}
-        className="flex items-center gap-3 px-3 py-2 text-sm font-semibold tracking-tight text-white"
+        className="flex items-center gap-3 px-3 py-2"
       >
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-amber-300 text-sm font-bold text-stone-950">
-          D
+        <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#b59675] text-[#25211f] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
+          <DineBellIcon className="h-5 w-5" />
         </span>
-        DineBell
+        <DineBellWordmark variant="inverse" className="text-[1.35rem]" />
       </Link>
 
-      <p className="mt-9 px-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+      <p className="mt-10 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.17em] text-[#bfa68c]">
         Restaurant operations
       </p>
       <nav aria-label="Restaurant operations" className="mt-3 space-y-1">
@@ -61,8 +62,8 @@ function Navigation({ onNavigate }: NavigationProps) {
               className={
                 "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition " +
                 (isActive
-                  ? "bg-white text-stone-950 shadow-sm"
-                  : "text-stone-300 hover:bg-white/10 hover:text-white")
+                  ? "bg-[#fffaf4] text-[#25211f] shadow-[0_10px_24px_rgba(0,0,0,0.18)]"
+                  : "text-[#ded1c3] hover:bg-white/10 hover:text-[#fffdf9]")
               }
             >
               <span aria-hidden="true" className="w-4 text-center text-base leading-none">
@@ -78,14 +79,14 @@ function Navigation({ onNavigate }: NavigationProps) {
         <Link
           href="/"
           onClick={onNavigate}
-          className="block rounded-xl px-3 py-2 text-sm text-stone-400 transition hover:bg-white/10 hover:text-white"
+          className="block rounded-xl px-3 py-2 text-sm text-[#bcae9f] transition hover:bg-white/10 hover:text-[#fffdf9]"
         >
           View landing page
         </Link>
         <button
           type="button"
           onClick={signOut}
-          className="mt-1 w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-stone-300 transition hover:bg-white/10 hover:text-white"
+          className="mt-1 w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-[#ded1c3] transition hover:bg-white/10 hover:text-[#fffdf9]"
         >
           Sign out
         </button>
@@ -98,22 +99,24 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f7f6f2] text-stone-950">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 bg-stone-950 lg:block">
+    <div className="dinebell-page min-h-screen">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-[#4a4038] bg-[#25211f] lg:block">
         <Navigation />
       </aside>
 
-      <header className="sticky top-0 z-20 flex items-center justify-between border-b border-stone-200 bg-[#f7f6f2]/95 px-4 py-3 backdrop-blur lg:hidden">
-        <Link href="/dashboard" className="flex items-center gap-2 text-sm font-semibold">
-          <span className="grid h-7 w-7 place-items-center rounded-lg bg-stone-950 text-xs text-white">D</span>
-          DineBell
+      <header className="sticky top-0 z-20 flex items-center justify-between border-b border-[#e7ddd2] bg-[#fffdf9]/95 px-4 py-3.5 backdrop-blur lg:hidden">
+        <Link href="/dashboard" className="flex items-center gap-2.5">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#b59675] text-[#25211f]">
+            <DineBellIcon className="h-4.5 w-4.5" />
+          </span>
+          <DineBellWordmark className="text-xl" />
         </Link>
         <button
           type="button"
           onClick={() => setIsMenuOpen(true)}
           aria-expanded={isMenuOpen}
           aria-controls="dashboard-navigation"
-          className="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm font-medium transition hover:bg-stone-50"
+          className="rounded-lg border border-[#d8ccc0] bg-[#fffdf9] px-3 py-2 text-sm font-medium text-[#25211f] transition hover:border-[#b59675] hover:bg-[#f8f1e9]"
         >
           Menu
         </button>
@@ -125,20 +128,20 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             type="button"
             aria-label="Close navigation menu"
             onClick={() => setIsMenuOpen(false)}
-            className="absolute inset-0 h-full w-full bg-stone-950/45"
+            className="absolute inset-0 h-full w-full bg-[#25211f]/55"
           />
           <aside
             id="dashboard-navigation"
             role="dialog"
             aria-modal="true"
             aria-label="Restaurant operations navigation"
-            className="relative h-full w-72 max-w-[85vw] bg-stone-950 shadow-2xl"
+            className="relative h-full w-72 max-w-[85vw] bg-[#25211f] shadow-2xl"
           >
             <div className="absolute right-3 top-3 z-10">
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-stone-300 transition hover:bg-white/10 hover:text-white"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-[#ded1c3] transition hover:bg-white/10 hover:text-[#fffdf9]"
               >
                 Close
               </button>

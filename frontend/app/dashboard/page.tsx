@@ -143,19 +143,19 @@ export default function DashboardPage() {
   return (
     <DashboardLayout>
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-        <header className="flex flex-col gap-5 border-b border-stone-200 pb-8 md:flex-row md:items-end md:justify-between">
+        <header className="flex flex-col gap-5 border-b border-[#e4d8cb] pb-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">Restaurant operations</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a88b6b]">Restaurant operations</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Good to see you, {overview.restaurantAdmin.name || "owner"}.</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-600">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#766d66]">
               Your restaurant&apos;s digital receptionist keeps every call, reservation, and guest conversation in view.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link href="/calendar" className="inline-flex items-center justify-center rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold transition hover:border-stone-500 hover:bg-stone-50">
+            <Link href="/calendar" className="inline-flex items-center justify-center rounded-xl border border-[#d8ccc0] bg-[#fffdf9] px-4 py-2.5 text-sm font-semibold transition hover:border-[#b59675] hover:bg-[#f8f1e9]">
               View calendar
             </Link>
-            <Link href="/reservations" className="inline-flex items-center justify-center rounded-xl bg-stone-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700">
+            <Link href="/reservations" className="inline-flex items-center justify-center rounded-xl bg-[#25211f] px-4 py-2.5 text-sm font-semibold text-[#fffdf9] shadow-[0_8px_18px_rgba(37,33,31,0.14)] transition hover:bg-[#403934]">
               Manage reservations
             </Link>
           </div>
@@ -163,29 +163,29 @@ export default function DashboardPage() {
 
         <section aria-label="Today’s operational summary" className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {kpis.map((kpi) => (
-            <article key={kpi.label} className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-              <p className="text-sm font-medium text-stone-600">{kpi.label}</p>
+            <article key={kpi.label} className="dinebell-panel rounded-2xl p-5">
+              <p className="text-sm font-medium text-[#766d66]">{kpi.label}</p>
               <p className={"mt-3 text-3xl font-semibold tracking-tight " + kpi.tone}>{kpi.value}</p>
-              <p className="mt-2 text-sm text-stone-500">{kpi.detail}</p>
+              <p className="mt-2 text-sm text-[#8b7e73]">{kpi.detail}</p>
             </article>
           ))}
         </section>
 
         <section className="mt-8 grid gap-6 xl:grid-cols-[1.2fr_.8fr]">
-          <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between border-b border-stone-100 px-5 py-5 sm:px-6">
+          <article className="dinebell-panel overflow-hidden rounded-2xl">
+            <div className="flex items-center justify-between border-b border-[#eee4d9] px-5 py-5 sm:px-6">
               <div>
                 <h2 className="text-lg font-semibold">Upcoming reservations</h2>
-                <p className="mt-1 text-sm text-stone-500">Ordered by date and service time.</p>
+                <p className="mt-1 text-sm text-[#8b7e73]">Ordered by date and service time.</p>
               </div>
-              <Link href="/reservations" className="text-sm font-semibold text-sky-700 hover:underline">View all</Link>
+              <Link href="/reservations" className="text-sm font-semibold text-[#7a5a40] hover:underline">View all</Link>
             </div>
-            <div className="divide-y divide-stone-100">
+            <div className="divide-y divide-[#eee4d9]">
               {sortedReservations.slice(0, 5).map((reservation) => (
                 <div key={reservation.id} className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
                   <div className="min-w-0">
-                    <p className="font-semibold text-stone-900">{reservation.customer?.name || "Guest"}</p>
-                    <p className="mt-1 text-sm text-stone-500">{formatReservationDate(reservation.reservation_date)} · {formatReservationTime(reservation.reservation_time)} · {reservation.guests} guests</p>
+                    <p className="font-semibold text-[#25211f]">{reservation.customer?.name || "Guest"}</p>
+                    <p className="mt-1 text-sm text-[#8b7e73]">{formatReservationDate(reservation.reservation_date)} · {formatReservationTime(reservation.reservation_time)} · {reservation.guests} guests</p>
                   </div>
                   <span className={"inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-semibold capitalize " + getStatusClasses(reservation.status)}>
                     {reservation.status}
@@ -193,32 +193,32 @@ export default function DashboardPage() {
                 </div>
               ))}
               {sortedReservations.length === 0 && (
-                <div className="px-5 py-10 text-center text-sm text-stone-500">No reservations yet.</div>
+                <div className="px-5 py-10 text-center text-sm text-[#8b7e73]">No reservations yet.</div>
               )}
             </div>
           </article>
 
-          <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between border-b border-stone-100 px-5 py-5 sm:px-6">
+          <article className="dinebell-panel overflow-hidden rounded-2xl">
+            <div className="flex items-center justify-between border-b border-[#eee4d9] px-5 py-5 sm:px-6">
               <div>
                 <h2 className="text-lg font-semibold">Recent receptionist activity</h2>
-                <p className="mt-1 text-sm text-stone-500">Latest calls and guest conversations handled by DineBell.</p>
+                <p className="mt-1 text-sm text-[#8b7e73]">Latest calls and guest conversations handled by DineBell.</p>
               </div>
-              <Link href="/conversations" className="text-sm font-semibold text-sky-700 hover:underline">Open history</Link>
+              <Link href="/conversations" className="text-sm font-semibold text-[#7a5a40] hover:underline">Open history</Link>
             </div>
-            <div className="divide-y divide-stone-100">
+            <div className="divide-y divide-[#eee4d9]">
               {overview.conversations.slice(0, 4).map((conversation) => (
-                <Link key={conversation.id} href="/conversations" className="block px-5 py-4 transition hover:bg-stone-50 sm:px-6">
+                <Link key={conversation.id} href="/conversations" className="block px-5 py-4 transition hover:bg-[#f8f1e9] sm:px-6">
                   <div className="flex items-start justify-between gap-3">
-                    <p className="text-sm font-semibold text-stone-900">{conversation.source === "vapi" ? "DineBell call" : "Guest conversation"}</p>
-                    <span className="whitespace-nowrap text-xs text-stone-500">{formatDuration(conversation.duration)}</span>
+                    <p className="text-sm font-semibold text-[#25211f]">{conversation.source === "vapi" ? "DineBell call" : "Guest conversation"}</p>
+                    <span className="whitespace-nowrap text-xs text-[#8b7e73]">{formatDuration(conversation.duration)}</span>
                   </div>
-                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-stone-600">{conversation.summary}</p>
-                  <p className="mt-2 text-xs text-stone-500">{formatConversationDate(conversation.created_at)}</p>
+                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#766d66]">{conversation.summary}</p>
+                  <p className="mt-2 text-xs text-[#8b7e73]">{formatConversationDate(conversation.created_at)}</p>
                 </Link>
               ))}
               {overview.conversations.length === 0 && (
-                <div className="px-5 py-10 text-center text-sm text-stone-500">DineBell conversations will appear here once calls begin.</div>
+                <div className="px-5 py-10 text-center text-sm text-[#8b7e73]">DineBell conversations will appear here once calls begin.</div>
               )}
             </div>
           </article>

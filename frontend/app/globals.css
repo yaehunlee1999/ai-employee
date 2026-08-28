@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf7f2;
+  --foreground: #25211f;
+  --dinebell-charcoal: #25211f;
+  --dinebell-charcoal-soft: #403934;
+  --dinebell-bronze: #a88b6b;
+  --dinebell-bronze-light: #e8dccf;
+  --dinebell-cream: #fffdf9;
+  --dinebell-line: #e7ddd2;
+  --dinebell-muted: #766d66;
 }
 
 @theme inline {
@@ -12,15 +19,74 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--dinebell-bronze-light);
+  color: var(--dinebell-charcoal);
+}
+
+.dinebell-page {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.dinebell-auth-shell {
+  background:
+    radial-gradient(circle at top left, rgba(232, 220, 207, 0.62), transparent 33rem),
+    var(--background);
+}
+
+.dinebell-auth-card,
+.dinebell-panel {
+  border: 1px solid var(--dinebell-line);
+  background: var(--dinebell-cream);
+  box-shadow: 0 18px 46px rgba(66, 52, 41, 0.08);
+}
+
+.dinebell-primary-button {
+  border-radius: 0.75rem;
+  background: var(--dinebell-charcoal);
+  color: var(--dinebell-cream);
+  box-shadow: 0 8px 18px rgba(37, 33, 31, 0.16);
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.dinebell-primary-button:hover {
+  background: var(--dinebell-charcoal-soft);
+  box-shadow: 0 11px 22px rgba(37, 33, 31, 0.2);
+}
+
+.dinebell-primary-button:focus-visible,
+.dinebell-input:focus-visible {
+  outline: 2px solid var(--dinebell-bronze);
+  outline-offset: 2px;
+}
+
+.dinebell-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.dinebell-input {
+  border: 1px solid #d8ccc0;
+  border-radius: 0.625rem;
+  background: var(--dinebell-cream);
+  color: var(--dinebell-charcoal);
+  box-shadow: inset 0 1px 1px rgba(37, 33, 31, 0.03);
+}
+
+.dinebell-input:focus {
+  border-color: var(--dinebell-bronze);
+  box-shadow: 0 0 0 3px rgba(168, 139, 107, 0.16);
+}
+
+.dinebell-bronze-panel {
+  border: 1px solid #cdb292;
+  background: linear-gradient(135deg, #dcc3a4 0%, #bd9c79 100%);
+  box-shadow: 0 20px 42px rgba(86, 65, 47, 0.16);
 }
