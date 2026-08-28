@@ -15,10 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DineBell | AI Receptionist for Restaurants",
   description:
-    "DineBell helps restaurants answer every call, capture reservations, and manage guest conversations.",
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }]
-  }
+    "DineBell helps restaurants answer every call, capture reservations, and manage guest conversations."
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

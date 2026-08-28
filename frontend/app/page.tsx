@@ -201,7 +201,7 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <header className="flex items-center justify-between py-5 sm:py-6">
           <Link href="/" className="flex items-center transition hover:opacity-75">
-            <DineBellWordmark className="text-[1.8rem]" />
+            <DineBellWordmark priority className="text-[1.8rem]" />
           </Link>
           <div className="flex items-center gap-3">
             <Link

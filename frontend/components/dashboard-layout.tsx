@@ -38,12 +38,12 @@ function Navigation({ onNavigate }: NavigationProps) {
       <Link
         href="/dashboard"
         onClick={onNavigate}
-        className="flex items-center gap-3 px-3 py-2"
+        aria-label="DineBell dashboard"
+        className="flex w-fit items-center px-3 py-2"
       >
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#b59675] text-[#25211f] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
-          <DineBellIcon className="h-5 w-5" />
+        <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#fffdf9] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
+          <DineBellIcon className="h-8 w-8" priority />
         </span>
-        <DineBellWordmark variant="inverse" className="text-[1.35rem]" />
       </Link>
 
       <p className="mt-10 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.17em] text-[#bfa68c]">
@@ -151,7 +151,21 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         </div>
       )}
 
-      <main className="min-w-0 lg:pl-64">{children}</main>
+      <main className="min-w-0 lg:pl-64">
+        <header className="hidden h-[4.5rem] items-center justify-between border-b border-[#e7ddd2] bg-[#fffdf9]/90 px-10 backdrop-blur lg:flex">
+          <Link
+            href="/dashboard"
+            aria-label="DineBell dashboard"
+            className="inline-flex transition hover:opacity-75"
+          >
+            <DineBellWordmark className="text-[1.35rem]" />
+          </Link>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8b7e73]">
+            Restaurant workspace
+          </p>
+        </header>
+        {children}
+      </main>
     </div>
   );
 }

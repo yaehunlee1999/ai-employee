@@ -1,45 +1,76 @@
-import type { ComponentPropsWithoutRef } from "react";
+import Image from "next/image";
 
-type DineBellIconProps = ComponentPropsWithoutRef<"svg">;
+interface BrandAssetProps {
+  className?: string;
+  priority?: boolean;
+}
 
-export function DineBellIcon({ className, ...props }: DineBellIconProps) {
+/**
+ * The official DineBell bell artwork, placed inside a square crop for compact UI.
+ * The source image is retained as supplied; the positioning only hides its canvas margin.
+ */
+export function DineBellIcon({ className = "h-8 w-8", priority = false }: BrandAssetProps) {
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      {...props}
+    <span
+      role="img"
+      aria-label="DineBell bell"
+      className={"relative inline-block shrink-0 overflow-hidden align-middle " + className}
     >
-      <path d="M20 7.5H28C29.7 7.5 31 8.8 31 10.5C31 12.2 29.7 13.5 28 13.5H20C18.3 13.5 17 12.2 17 10.5C17 8.8 18.3 7.5 20 7.5Z" fill="currentColor" />
-      <path d="M21.5 13H26.5V17H21.5V13Z" fill="currentColor" />
-      <path d="M11 31.5C11 22.1 16.8 15.5 24 15.5C31.2 15.5 37 22.1 37 31.5V33H11V31.5Z" fill="currentColor" />
-      <path d="M8 35.5C8 34.7 8.7 34 9.5 34H38.5C39.3 34 40 34.7 40 35.5V37C40 38.1 39.1 39 38 39H10C8.9 39 8 38.1 8 37V35.5Z" fill="currentColor" />
-      <path d="M14.5 29.5C14.5 23.8 17.2 20 21.1 18.4" stroke="#FFFDF9" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
+      <Image
+        src="/brand/dinebell-bell.png"
+        alt=""
+        aria-hidden="true"
+        width={1254}
+        height={1254}
+        sizes="48px"
+        priority={priority}
+        className="absolute block max-w-none mix-blend-multiply"
+        style={{
+          width: "154.8%",
+          height: "auto",
+          maxWidth: "none",
+          left: "-27.4%",
+          top: "-26.5%"
+        }}
+      />
+    </span>
   );
 }
 
-interface DineBellWordmarkProps {
-  className?: string;
-  variant?: "default" | "inverse";
-}
-
+/**
+ * The official DineBell wordmark. The supplied source artwork remains unchanged;
+ * the wrapper simply frames the wordmark without its export canvas.
+ */
 export function DineBellWordmark({
   className = "text-2xl",
-  variant = "default"
-}: DineBellWordmarkProps) {
-  const dineColor = variant === "inverse" ? "text-[#FFFDF9]" : "text-[#25211F]";
-  const bellColor = variant === "inverse" ? "text-[#D7B998]" : "text-[#A88B6B]";
-
+  priority = false
+}: BrandAssetProps) {
   return (
     <span
+      role="img"
       aria-label="DineBell"
-      className={"inline-flex items-baseline whitespace-nowrap font-semibold leading-none tracking-[-0.075em] " + className}
+      className={
+        "relative inline-block h-[1em] w-[5.45em] shrink-0 overflow-hidden align-[-0.12em] " +
+        className
+      }
     >
-      <span className={dineColor}>Dine</span>
-      <span className={bellColor}>Bell</span>
+      <Image
+        src="/brand/dinebell-wordmark.png"
+        alt=""
+        aria-hidden="true"
+        width={1536}
+        height={1024}
+        sizes="(max-width: 640px) 176px, 260px"
+        priority={priority}
+        className="absolute block max-w-none mix-blend-multiply"
+        style={{
+          width: "142.2%",
+          height: "auto",
+          maxWidth: "none",
+          left: "-21.9%",
+          top: "-202%"
+        }}
+      />
     </span>
   );
 }

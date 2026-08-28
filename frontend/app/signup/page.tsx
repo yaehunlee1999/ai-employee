@@ -82,7 +82,7 @@ export default function SignupPage() {
           aria-label="DineBell home"
           className="inline-flex transition hover:opacity-75"
         >
-          <DineBellWordmark className="text-[1.9rem]" />
+          <DineBellWordmark priority className="text-[1.9rem]" />
         </Link>
 
         <section className="dinebell-auth-card mx-auto mt-8 w-full max-w-2xl rounded-[1.5rem] p-6 sm:mt-10 sm:p-8">
