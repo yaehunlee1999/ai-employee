@@ -76,5 +76,5 @@ def health():
 @app.get("/")
 def root():
     return {
-        "message": "AI Employee Backend Running"
+        "message": "DineBell Backend Running"
     }

@@ -12,7 +12,7 @@ const navigationItems = [
   { href: "/calendar", label: "Calendar", icon: "□" },
   { href: "/conversations", label: "Conversations", icon: "◒" },
   { href: "/analytics", label: "Analytics", icon: "◫" },
-  { href: "/settings", label: "AI Settings", icon: "⚙" }
+  { href: "/settings", label: "Receptionist settings", icon: "⚙" }
 ];
 
 interface DashboardLayoutProps {
@@ -40,9 +40,9 @@ function Navigation({ onNavigate }: NavigationProps) {
         className="flex items-center gap-3 px-3 py-2 text-sm font-semibold tracking-tight text-white"
       >
         <span className="grid h-8 w-8 place-items-center rounded-lg bg-amber-300 text-sm font-bold text-stone-950">
-          A
+          D
         </span>
-        AI Employee
+        DineBell
       </Link>
 
       <p className="mt-9 px-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
@@ -105,8 +105,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       <header className="sticky top-0 z-20 flex items-center justify-between border-b border-stone-200 bg-[#f7f6f2]/95 px-4 py-3 backdrop-blur lg:hidden">
         <Link href="/dashboard" className="flex items-center gap-2 text-sm font-semibold">
-          <span className="grid h-7 w-7 place-items-center rounded-lg bg-stone-950 text-xs text-white">A</span>
-          AI Employee
+          <span className="grid h-7 w-7 place-items-center rounded-lg bg-stone-950 text-xs text-white">D</span>
+          DineBell
         </Link>
         <button
           type="button"

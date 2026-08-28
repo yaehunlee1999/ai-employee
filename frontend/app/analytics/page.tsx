@@ -159,9 +159,9 @@ export default function AnalyticsPage() {
       valueClassName: "text-emerald-700"
     },
     {
-      label: "AI calls handled",
+      label: "Calls handled",
       value: analytics.ai_calls_handled,
-      description: "Distinct Vapi call IDs",
+      description: "Calls handled by DineBell",
       valueClassName: "text-sky-700"
     },
     {
@@ -184,7 +184,7 @@ export default function AnalyticsPage() {
               Analytics
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-600">
-              A clear view of reservation creation and the calls your AI receptionist handled.
+              A clear view of reservation creation and the calls DineBell handled for your restaurant.
             </p>
           </div>
           <Link

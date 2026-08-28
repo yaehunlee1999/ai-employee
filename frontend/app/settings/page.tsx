@@ -49,7 +49,7 @@ async function loadRestaurantSettings() {
 
   if (!response.ok) {
     const body = await response.json().catch(() => null);
-    throw new Error(body?.detail || "Unable to load AI settings");
+    throw new Error(body?.detail || "Unable to load receptionist settings");
   }
 
   return (await response.json()) as RestaurantSettings;
@@ -89,7 +89,7 @@ export default function SettingsPage() {
         }
 
         setError(
-          reason instanceof Error ? reason.message : "Unable to load AI settings"
+          reason instanceof Error ? reason.message : "Unable to load receptionist settings"
         );
       })
       .finally(() => {
@@ -137,8 +137,8 @@ export default function SettingsPage() {
       setSavedAssistantId(settings.vapi_assistant_id);
       setSuccessMessage(
         settings.vapi_assistant_id
-          ? "Vapi Assistant connection saved."
-          : "Vapi Assistant disconnected."
+          ? "DineBell receptionist connection saved."
+          : "DineBell receptionist disconnected."
       );
     } catch (reason) {
       if (reason instanceof AuthenticationRequiredError) {
@@ -147,7 +147,7 @@ export default function SettingsPage() {
       }
 
       setError(
-        reason instanceof Error ? reason.message : "Unable to update Vapi settings"
+        reason instanceof Error ? reason.message : "Unable to update receptionist settings"
       );
     } finally {
       setIsSaving(false);
@@ -158,7 +158,7 @@ export default function SettingsPage() {
     return (
       <DashboardLayout>
         <main className="flex min-h-[70vh] items-center justify-center p-8 text-zinc-600">
-          Loading AI settings...
+          Loading receptionist settings...
         </main>
       </DashboardLayout>
     );
@@ -177,19 +177,18 @@ export default function SettingsPage() {
 
         <div className="mt-6">
           <p className="text-sm font-medium text-blue-700 dark:text-blue-300">
-            Restaurant AI settings
+            DineBell receptionist settings
           </p>
           <h1 className="mt-1 text-3xl font-bold tracking-tight">
             {restaurantName || "Restaurant"}
           </h1>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-            Connect the Vapi Assistant that should create reservations for this
-            restaurant.
+            Connect the DineBell receptionist that should answer calls and capture reservations for this restaurant.
           </p>
         </div>
 
         <div className="mt-6 rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950/50">
-          <p className="text-sm font-medium">Vapi connection status</p>
+          <p className="text-sm font-medium">DineBell connection status</p>
           <p
             className={
               "mt-2 inline-flex rounded-full px-2.5 py-1 text-xs font-semibold " +
@@ -209,7 +208,7 @@ export default function SettingsPage() {
 
         <form onSubmit={saveVapiAssistant} className="mt-6 space-y-4">
           <label className="block space-y-1">
-            <span className="text-sm font-medium">Vapi Assistant ID</span>
+            <span className="text-sm font-medium">Vapi assistant ID</span>
             <input
               type="text"
               value={assistantId}
@@ -220,7 +219,7 @@ export default function SettingsPage() {
             />
           </label>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
-            Leave this field empty and save to disconnect the current Assistant.
+            This securely connects DineBell to your configured Vapi assistant. Leave it empty and save to disconnect.
           </p>
 
           {error && (
@@ -245,7 +244,7 @@ export default function SettingsPage() {
             disabled={isSaving}
             className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
-            {isSaving ? "Saving..." : "Save Vapi Assistant"}
+            {isSaving ? "Saving..." : "Save DineBell connection"}
           </button>
         </form>
       </section>

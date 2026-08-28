@@ -189,7 +189,7 @@ export default function ReservationsPage() {
             {sortedReservations.length === 0 && (
               <div className="px-5 py-14 text-center">
                 <p className="font-semibold">No reservations yet</p>
-                <p className="mt-2 text-sm text-stone-500">New Vapi and AI-created reservations will appear here.</p>
+                <p className="mt-2 text-sm text-stone-500">Reservations captured by DineBell will appear here.</p>
               </div>
             )}
           </section>

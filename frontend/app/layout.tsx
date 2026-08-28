@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Employee | Restaurant operations",
-  description: "Reservations, conversations, and AI receptionist operations for restaurants.",
+  title: "DineBell | AI Receptionist for Restaurants",
+  description:
+    "DineBell helps restaurants answer every call, capture reservations, and manage guest conversations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

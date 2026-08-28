@@ -38,13 +38,13 @@ export default function LoginPage() {
         <section className="w-full max-w-md">
           <Link
             href="/"
-            aria-label="AI Employee home"
+            aria-label="DineBell home"
             className="inline-flex items-center gap-2.5 font-semibold tracking-tight transition hover:text-stone-600"
           >
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-stone-950 text-sm text-white">
-              A
+              D
             </span>
-            <span>AI Employee</span>
+            <span>DineBell</span>
           </Link>
 
           <div className="mt-8 border border-stone-200 bg-white p-6 shadow-sm sm:mt-10 sm:p-8">
@@ -56,7 +56,7 @@ export default function LoginPage() {
                 Welcome back
               </h1>
               <p className="mt-3 max-w-sm text-sm leading-6 text-stone-600">
-                Sign in to manage your reservations, conversations, and AI receptionist.
+                Sign in to manage your reservations, guest conversations, and DineBell receptionist.
               </p>
             </div>
 
@@ -119,7 +119,7 @@ export default function LoginPage() {
             className="mt-6 inline-flex text-sm font-medium text-stone-500 transition hover:text-stone-950"
           >
             <span aria-hidden="true" className="mr-2">←</span>
-            Back to AI Employee
+            Back to DineBell
           </Link>
         </section>
       </div>

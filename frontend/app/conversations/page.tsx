@@ -19,7 +19,7 @@ interface TranscriptMessage {
 }
 
 function getSourceLabel(source: Conversation["source"]) {
-  return source === "vapi" ? "Vapi call" : "AI chat";
+  return source === "vapi" ? "DineBell call" : "Guest conversation";
 }
 
 function normalizeSpeaker(speaker: string) {
@@ -152,7 +152,7 @@ function ConversationDetail({ conversation, onClose }: ConversationDetailProps) 
               </div>
             ) : (
               <p className="mt-5 rounded-xl bg-stone-50 p-4 text-sm leading-6 text-stone-600">
-                {conversation.source === "vapi" ? "A transcript was not included with this call." : "AI chat records do not include a Vapi call transcript."}
+                {conversation.source === "vapi" ? "A transcript was not included with this call." : "This guest conversation does not include a call transcript."}
               </p>
             )}
           </section>
@@ -230,9 +230,9 @@ export default function ConversationsPage() {
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
         <header className="flex flex-col gap-4 border-b border-stone-200 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">AI receptionist activity</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">DineBell receptionist activity</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Conversations</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-600">Review completed Vapi calls and AI chats. Select a record to read its complete conversation.</p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-600">Review every DineBell call and guest conversation. Select a record to read the complete details.</p>
           </div>
           <p className="text-sm text-stone-500">{conversations.length} total record{conversations.length === 1 ? "" : "s"}</p>
         </header>
@@ -273,7 +273,7 @@ export default function ConversationsPage() {
             {conversations.length === 0 && (
               <div className="px-5 py-14 text-center">
                 <p className="font-semibold">No conversation records yet</p>
-                <p className="mt-2 text-sm text-stone-500">New Vapi calls and AI chat history will appear here.</p>
+                <p className="mt-2 text-sm text-stone-500">DineBell call history will appear here after your receptionist takes a call.</p>
               </div>
             )}
           </section>

@@ -58,8 +58,8 @@ export default function SignupPage() {
       const onboarding: OnboardingResponse = body;
       setSuccessMessage(
         onboarding.requires_email_confirmation
-          ? "Your account is ready. Confirm your email, then sign in."
-          : "Your restaurant account is ready. You can sign in now."
+          ? "Your DineBell account is ready. Confirm your email, then sign in."
+          : "Your DineBell restaurant account is ready. You can sign in now."
       );
     } catch (reason) {
       setError(
@@ -77,13 +77,13 @@ export default function SignupPage() {
       <div className="mx-auto max-w-6xl">
         <Link
           href="/"
-          aria-label="AI Employee home"
+          aria-label="DineBell home"
           className="inline-flex items-center gap-2.5 font-semibold tracking-tight transition hover:text-stone-600"
         >
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-stone-950 text-sm text-white">
-            A
+            D
           </span>
-          <span>AI Employee</span>
+          <span>DineBell</span>
         </Link>
 
         <section className="mx-auto mt-8 w-full max-w-2xl border border-stone-200 bg-white p-6 shadow-sm sm:mt-10 sm:p-8">
@@ -95,7 +95,7 @@ export default function SignupPage() {
               Set up your restaurant
             </h1>
             <p className="mt-3 text-sm leading-6 text-stone-600">
-              Create the owner account that keeps your reservations and AI receptionist in one place.
+              Create the owner account that keeps your reservations and DineBell receptionist in one place.
             </p>
           </div>
 
@@ -244,7 +244,7 @@ export default function SignupPage() {
           className="mx-auto mt-6 flex w-full max-w-2xl text-sm font-medium text-stone-500 transition hover:text-stone-950"
         >
           <span aria-hidden="true" className="mr-2">←</span>
-          Back to AI Employee
+          Back to DineBell
         </Link>
       </div>
     </main>
